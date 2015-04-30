@@ -60,7 +60,7 @@ public class MessagePost
     {
         System.out.println("Usuario: " + userName);
         System.out.println("Mensaje: " + message);
-        System.out.println("Enviado hace " + (timeString(System.currentTimeMillis())));
+        System.out.println("Enviado hace: " + (timeString(System.currentTimeMillis())));
         System.out.println(likes + " Likes");
         if(comments.size() == 0)
         {

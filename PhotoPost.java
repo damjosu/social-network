@@ -29,17 +29,24 @@ public class PhotoPost
     
     public void like()
     {
-    
+         likes++;
     }
     
     public void unLike()
     {
-    
+         if (likes-- < 0)
+        {
+            likes = 0;
+        }
+        else
+        {
+            likes--;
+        }
     }
     
     public void addComment(String text)
     {
-    
+        comments.add(text);
     }
     
     public String getImageFile()
@@ -60,12 +67,30 @@ public class PhotoPost
     
     public void display()
     {
-        
+        System.out.println("Usuario: " + userName);
+        System.out.println("Archivo: " + fileName);
+        System.out.println("Título: " + caption);
+        System.out.println("Enviado hace: " + (timeString(System.currentTimeMillis())));
+        System.out.println(likes + " Likes");
+        if(comments.size() == 0)
+        {
+            System.out.println("No hay ningun comentario");            
+        }
+        else
+        {
+            System.out.println("Comentarios: ");
+            for(int i = 0; i < comments.size(); i++)
+            {
+                System.out.println(i+1 + ": " + comments.get(i));
+            }
+        }
     }
     
-    public long timeString(long time)
+    public String timeString(long time)
     {
-        long timeString = 0;
-        return timeString;
+        long elapsedTime = (time - timeStamp);
+        float minutes = (float)(elapsedTime / 60000);
+        float seconds = (minutes - (int) minutes) * 60;
+        return "Han transcurrido " + (int)minutes + " minutos " + (int)seconds + " segundos.";
     }
 }

@@ -11,27 +11,26 @@ public class Post
     private long timeStamp;
     private int likes;
 
-
     /**
      * Constructor for objects of class Post
      */
     public Post(String userName)
     {
-       this.userName = userName;
-       timeStamp = System.currentTimeMillis();
-       likes = 0;
+        this.userName = userName;
+        timeStamp = System.currentTimeMillis();
+        likes = 0;
     }
 
     public String getUserName()
     {
         return userName;
     }
-    
+
     public long getTimeStamp()
     {
         return timeStamp;
     }
-        
+
     /**
      * Aumenta el contador de likes en uno
      */
@@ -39,12 +38,12 @@ public class Post
     {
         likes++;
     }
-    
+
     public int getLikes()
     {
         return likes;
     }
-    
+
     /**
      * Disminuye el contador de likes en uno. Si ya es cero no hace nada.
      */
@@ -55,7 +54,7 @@ public class Post
             likes--;
         }
     }
-    
+
     /**
      * Devuelve el tiempo en string
      *

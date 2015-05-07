@@ -39,25 +39,23 @@ public class PhotoPost extends Comments
     {
         return caption;
     }
-    
+
     public void display()
     {
+        System.out.println("Autor del mensaje" + getUserName());
+        System.out.println("Foto: " + filename);
+        System.out.println("Título: " + caption);
+        System.out.println("Me gusta " + getLikes());
+        System.out.println(timeString(System.currentTimeMillis()));
+        if(getComments().isEmpty())
         {
-            System.out.println("Autor del mensaje" + getUserName());
-            System.out.println("Foto: " + filename);
-            System.out.println("Título: " + caption);
-            System.out.println("Me gusta " + getLikes());
-            System.out.println(timeString(System.currentTimeMillis()));
-            if(getComments().isEmpty())
+            System.out.println("No hay comentarios aun para este post");
+        }
+        else
+        {                      
+            for (String comment : getComments())
             {
-                System.out.println("No hay comentarios aun para este post");
-            }
-            else
-            {                      
-                for (String comment : getComments())
-                {
-                    System.out.println(comment);
-                }
+                System.out.println(comment);
             }
         }
     }

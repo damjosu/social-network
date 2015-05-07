@@ -1,96 +1,64 @@
 import java.util.ArrayList;
-/**
- * Write a description of class PhotoPost here.
- * 
- * @author (Josu) 
- * @version (30/04/2015)
- */
-public class PhotoPost
+
+public class PhotoPost extends Comments
 {
-    private String userName;
-    private String fileName;
+    private String filename;
     private String caption;
-    private long timeStamp;
-    private int likes;
-    private ArrayList<String> comments;
 
     /**
-     * Constructor for objects of class PhotoPost
-     */
-    public PhotoPost(String author, String fileName, String caption)
+     * Constructor de la clase PhotoPost
+     *
+     * @param author el nombre de usuario que crea el post
+     * @param filename el nombre del archivo de la foto
+     * @param caption el título asociado a la foto
+     *
+     **/
+    public PhotoPost (String author, String filename, String caption)
     {
-       userName = author;
-       this.fileName = fileName;
-       this.caption = caption;
-       timeStamp = 0;
-       likes = 0;
-       comments = new ArrayList<>();
+        super(author);
+        this.filename = filename;
+        this.caption = caption;
     }
-    
-    public void like()
+
+    /**
+     * Devuelve el nombre del archivo de la imagen
+     *
+     * @return filename el nombre del archivo de imagen del post
+     **/
+    public String getImageFilename()
     {
-         likes++;
+        return filename;
     }
-    
-    public void unLike()
-    {
-         if (likes-- < 0)
-        {
-            likes = 0;
-        }
-        else
-        {
-            likes--;
-        }
-    }
-    
-    public void addComment(String text)
-    {
-        comments.add(text);
-    }
-    
-    public String getImageFile()
-    {
-        String imageFile = "";
-        return imageFile;
-    }
-    
+
+    /**
+     * Devuelve el titulo asociado a la imagen
+     * 
+     * @return caption el título asociado a la imagen
+     **/
     public String getCaption()
     {
         return caption;
     }
     
-    public long getTimeStamp()
-    {
-        return timeStamp;
-    }
-    
     public void display()
     {
-        System.out.println("Usuario: " + userName);
-        System.out.println("Archivo: " + fileName);
-        System.out.println("Título: " + caption);
-        System.out.println("Enviado hace: " + (timeString(System.currentTimeMillis())));
-        System.out.println(likes + " Likes");
-        if(comments.size() == 0)
         {
-            System.out.println("No hay ningun comentario");            
-        }
-        else
-        {
-            System.out.println("Comentarios: ");
-            for(int i = 0; i < comments.size(); i++)
+            System.out.println("Autor del mensaje" + getUserName());
+            System.out.println("Foto: " + filename);
+            System.out.println("Título: " + caption);
+            System.out.println("Me gusta " + getLikes());
+            System.out.println(timeString(System.currentTimeMillis()));
+            if(getComments().isEmpty())
             {
-                System.out.println(i+1 + ": " + comments.get(i));
+                System.out.println("No hay comentarios aun para este post");
+            }
+            else
+            {                      
+                for (String comment : getComments())
+                {
+                    System.out.println(comment);
+                }
             }
         }
-    }
-    
-    public String timeString(long time)
-    {
-        long elapsedTime = (time - timeStamp);
-        float minutes = (float)(elapsedTime / 60000);
-        float seconds = (minutes - (int) minutes) * 60;
-        return "Han transcurrido " + (int)minutes + " minutos " + (int)seconds + " segundos.";
     }
 }

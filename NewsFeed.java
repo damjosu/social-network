@@ -1,45 +1,56 @@
 import java.util.ArrayList;
-/**
- * Write a description of class NewsFeed here.
- * 
- * @author (Josu) 
- * @version (30/04/2015)
- */
+
 public class NewsFeed
 {
     private ArrayList<MessagePost> messages;
-    private ArrayList<PhotoPost> photos; 
+    private ArrayList<PhotoPost> photos;
 
     /**
-     * Constructor for objects of class NewsFeed
-     */
-    public NewsFeed()
-    {
-       messages = new ArrayList<>();
-       photos = new ArrayList<>();
+     * Constructor de la clase NewsFeed
+     *
+     **/
+    public NewsFeed(){
+        messages = new ArrayList<>();
+        photos 	= new ArrayList<>();
     }
 
-    
+    /**
+     * Añade un post de texto al muro.
+     *
+     * @param message el post de texto a añadir al muro
+     **/
     public void addMessagePost(MessagePost message)
     {
         messages.add(message);
     }
-    
-    public void addPhotoPost(PhotoPost photo)
+
+    /**
+     * Añade una post de foto al muro
+     * 
+     * @param post el post de foto a añadir al muro
+     **/
+    public void addPhotoPost(PhotoPost post)
     {
-        photos.add(photo);
+        photos.add(post);
     }
-    
-    public void show()
-    {
-        for (PhotoPost photo: photos)
+
+    /**
+     * Mostramos el tablon
+     */
+    public void show(){
+        for (MessagePost mensaje: messages)
         {
-            photo.display();
+            mensaje.display();
         }
-        
-        for (MessagePost message: messages)
+
+        for (PhotoPost foto: photos)
         {
-            message.display();
+            foto.display();
         }
     }
 }
+
+
+
+
+

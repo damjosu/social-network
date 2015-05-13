@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class MessagePost extends Comments
+public class MessagePost extends PostWithComments
 {
     private String message;
 
@@ -35,22 +35,8 @@ public class MessagePost extends Comments
         System.out.println("Esto es un post de texto creado por: " + getUserName()); 
     }
 
-    public void display()
+    public String toString()
     {
-        System.out.println("Autor del mensaje" + getUserName());
-        System.out.println("Mensaje: " + message);
-        System.out.println("Me gusta " + getLikes());
-        System.out.println(timeString(System.currentTimeMillis()));
-        if(getComments().isEmpty())
-        {
-            System.out.println("No hay comentarios aun para este post");
-        }
-        else
-        {                      
-            for (String comment : getComments())
-            {
-                System.out.println(comment);
-            }
-        }
+        return ("Mensaje: " + message + super.toString());
     }
 }

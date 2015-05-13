@@ -26,11 +26,8 @@ public class JoinGroupPost extends Post
         return group;
     }
 
-    public void display()
+    public String toString()
     {
-        System.out.println("Autor del mensaje" + getUserName());
-        System.out.println("Se ha unido al grupo: " + group);           
-        System.out.println("Me gusta " + getLikes());
-        System.out.println(timeString(System.currentTimeMillis()));            
+        return ("Se ha unido al grupo: " + group + super.toString() );
     }
 }

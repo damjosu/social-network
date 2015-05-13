@@ -2,51 +2,27 @@ import java.util.ArrayList;
 
 public class NewsFeed
 {
-    private ArrayList<MessagePost> messages;
-    private ArrayList<PhotoPost> photos;
+    private ArrayList<Post> posts;
 
     /**
      * Constructor de la clase NewsFeed
      *
      **/
-    public NewsFeed(){
-        messages = new ArrayList<>();
-        photos 	= new ArrayList<>();
+    public NewsFeed() {
+        posts = new ArrayList<>();
     }
-
-    /**
-     * Añade un post de texto al muro.
-     *
-     * @param message el post de texto a añadir al muro
-     **/
-    public void addMessagePost(MessagePost message)
-    {
-        messages.add(message);
+    
+    public void addPost(Post post) {
+        posts.add(post);
     }
-
-    /**
-     * Añade una post de foto al muro
-     * 
-     * @param post el post de foto a añadir al muro
-     **/
-    public void addPhotoPost(PhotoPost post)
-    {
-        photos.add(post);
-    }
-
+    
     /**
      * Mostramos el tablon
      */
-    public void show(){
-        for (MessagePost mensaje: messages)
-        {
-            mensaje.display();
-        }
-
-        for (PhotoPost foto: photos)
-        {
-            foto.display();
-        }
+    public void display() {
+       for (Post post : posts) {
+           System.out.println(post);
+       }
     }
 }
 

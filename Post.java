@@ -55,6 +55,11 @@ public class Post
         }
     }
 
+    public String toString() {
+        return ("Autor: " + userName + "Likes: " + likes +
+            timeString(System.currentTimeMillis()));
+    }
+
     /**
      * Devuelve el tiempo en string
      *
